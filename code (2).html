@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Service Pricing - Big Brother</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#eeeeee",
+                        "on-primary-fixed-variant": "#93000d",
+                        "error": "#ba1a1a",
+                        "secondary": "#4c56af",
+                        "surface-container-high": "#e8e8e8",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed": "#000767",
+                        "on-surface": "#1a1c1c",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "primary-container": "#db322f",
+                        "secondary-container": "#959efd",
+                        "on-secondary-fixed-variant": "#343d96",
+                        "tertiary": "#006b1b",
+                        "on-secondary-container": "#27308a",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#dadada",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-fixed-variant": "#005313",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary-fixed": "#002204",
+                        "surface-container-low": "#f3f3f3",
+                        "tertiary-fixed": "#98f994",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-fixed": "#ffdad6",
+                        "tertiary-fixed-dim": "#7ddc7a",
+                        "on-tertiary-container": "#f7fff1",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#b7131a",
+                        "outline": "#906f6c",
+                        "on-primary-fixed": "#410002",
+                        "on-background": "#1a1c1c",
+                        "surface-tint": "#bb171c",
+                        "on-surface-variant": "#5b403d",
+                        "inverse-on-surface": "#f1f1f1",
+                        "surface-variant": "#e2e2e2",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "secondary-fixed": "#e0e0ff",
+                        "primary-fixed-dim": "#ffb4ac",
+                        "inverse-primary": "#ffb4ac",
+                        "background": "#f9f9f9",
+                        "outline-variant": "#e4beb9",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "tertiary-container": "#268630",
+                        "surface": "#f9f9f9",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "16px",
+                        "touch-target-min": "56px",
+                        "base": "8px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-bold": ["Inter"],
+                        "emergency-callout": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-bold": ["14px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "emergency-callout": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-pill {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 shadow-md bg-surface dark:bg-on-surface flex justify-between items-center px-margin-mobile h-touch-target-min">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary dark:text-primary-fixed" data-icon="security">security</span>
+<h1 class="font-headline-md text-headline-md font-black text-primary dark:text-primary-fixed">Big Brother</h1>
+</div>
+<button class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors mr-1 flex items-center justify-center"><span class="material-symbols-outlined" data-icon="settings">settings</span></button><button class="bg-primary-container text-on-primary-container px-4 py-1 rounded-lg font-label-bold text-label-bold active:scale-95 transition-transform hover:opacity-90">
+            SOS
+        </button>
+</header>
+<main class="pt-20 px-margin-mobile max-w-2xl mx-auto">
+<!-- Section Header -->
+<div class="mb-8">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Manage Service Pricing</h2>
+<p class="text-on-surface-variant font-body-md">Configure hourly rates for rapid response vehicles and bike units across the network.</p><div class="mt-3 flex items-center gap-1.5 w-fit px-3 py-1 bg-surface-container-high border border-outline-variant rounded-full text-on-surface-variant"><span class="material-symbols-outlined text-sm" data-icon="admin_panel_settings">admin_panel_settings</span><span class="font-label-bold text-[12px] uppercase tracking-wider">Role: Administrator</span></div>
+</div>
+<!-- Pricing Cards Grid -->
+<div class="space-y-gutter">
+<!-- Bike Charge Management -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary" data-icon="moped">moped</span>
+<h3 class="font-label-bold text-label-bold text-on-surface">Bike Unit</h3>
+</div>
+<p class="text-on-surface-variant text-sm">Quick response motorcycle units</p>
+</div>
+<div class="text-right">
+<span class="block text-on-surface-variant text-xs font-label-bold uppercase tracking-wider">Current Rate</span>
+<span class="text-headline-md font-headline-md text-primary">₹180/hr</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block">
+<span class="text-sm font-label-bold text-on-surface-variant mb-2 block">Bike Charge (per hr)</span>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
+<input class="w-full pl-8 pr-4 py-3 bg-surface border-2 border-surface-container-highest rounded-lg focus:border-primary focus:ring-0 transition-colors font-headline-md" placeholder="180" type="number"/>
+</div>
+</label>
+</div>
+</section>
+<!-- Vehicle Charge Management -->
+<section class="bg-surface-container-lowest border border-surface-container-highest rounded-xl p-6 shadow-sm">
+<div class="flex justify-between items-start mb-6">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-secondary" data-icon="car_repair">car_repair</span>
+<h3 class="font-label-bold text-label-bold text-on-surface">Vehicle Unit</h3>
+</div>
+<p class="text-on-surface-variant text-sm">Standard SUV response vehicles</p>
+</div>
+<div class="text-right">
+<span class="block text-on-surface-variant text-xs font-label-bold uppercase tracking-wider">Current Rate</span>
+<span class="text-headline-md font-headline-md text-primary">₹450/hr</span>
+</div>
+</div>
+<div class="space-y-4">
+<label class="block">
+<span class="text-sm font-label-bold text-on-surface-variant mb-2 block">Vehicle Charge (per hr)</span>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant font-bold">₹</span>
+<input class="w-full pl-8 pr-4 py-3 bg-surface border-2 border-surface-container-highest rounded-lg focus:border-primary focus:ring-0 transition-colors font-headline-md" placeholder="450" type="number"/>
+</div>
+</label>
+</div>
+</section>
+<!-- Dynamic Pricing Toggle -->
+<div class="bg-surface-container-low rounded-xl p-6 flex items-center justify-between border border-outline-variant">
+<div class="flex gap-4 items-center">
+<div class="bg-tertiary/10 p-3 rounded-full">
+<span class="material-symbols-outlined text-tertiary" data-icon="local_gas_station">local_gas_station</span>
+</div>
+<div>
+<h4 class="font-label-bold text-label-bold text-on-surface">Dynamic Pricing</h4>
+<p class="text-sm text-on-surface-variant">Adjust rates automatically based on local fuel prices</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-tertiary"></div>
+</label>
+</div>
+<!-- Visual Context Image -->
+<div class="rounded-xl overflow-hidden h-48 relative group">
+<img alt="Security Operations Center" class="w-full h-full object-cover grayscale brightness-50" data-alt="A sophisticated security operations center with multiple digital monitors displaying glowing red maps and tracking data. The room is dimly lit, focusing the attention on the high-contrast data visualizations. The overall atmosphere is professional, urgent, and technological, utilizing a deep navy and safety red color palette to convey authority and protection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhdcLlzT7_Axsb1MxsepMMLBVS6HD04iYRGJV6GgC5HzX0XVKOL61FZevIi8S2vjzn5AKTmvFkNHbjwK3rv2HcaHuVY-RhWijW6wZ9WIHTgWE1zKLujyh0xexq5d4bdDbFZZ4uJka7ZNAToZnBEdOQNtZAGOBcOmsHXUh2xz8tXhQ51GSAo7PZa1IVqyQmyLuMpwSY7IBtokQhSaiMrsw5bCJqtIrqXZA6zHj43DXqviXw34_zKxezZKQSyBDYUfHOwv_avG-Tf-4"/>
+<div class="absolute inset-0 flex items-center justify-center bg-primary/20">
+<p class="text-white font-label-bold text-center px-6">Global Pricing Index: Active Monitoring</p>
+</div>
+</div>
+<!-- Update Button -->
+<button class="w-full bg-primary text-on-primary h-16 rounded-xl font-headline-md text-headline-md shadow-lg active:scale-95 transition-all hover:opacity-90 flex items-center justify-center gap-3">
+<span class="material-symbols-outlined" data-icon="cloud_upload">cloud_upload</span>
+                Update Prices
+            </button>
+</div>
+<div class="mt-8 text-center pb-12">
+<p class="text-xs text-on-surface-variant font-label-bold flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+                Guardian Protocol Auth Required for Deployment
+            </p>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 bg-surface dark:bg-surface-container-low flex justify-around items-center h-16 px-2 border-t border-outline-variant">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-bold text-label-bold">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="verified_user">verified_user</span>
+<span class="font-label-bold text-label-bold">Partners</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-95 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="location_searching">location_searching</span>
+<span class="font-label-bold text-label-bold">Tracking</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant transition-all px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-bold text-label-bold">Profile</span>
+</a>
+</nav>
+<script>
+        // Simple micro-interaction for the update button
+        const updateBtn = document.querySelector('button.bg-primary');
+        updateBtn.addEventListener('click', () => {
+            const originalContent = updateBtn.innerHTML;
+            updateBtn.innerHTML = `<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> Updating...`;
+            updateBtn.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                updateBtn.innerHTML = `<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span> Updated Successfully`;
+                updateBtn.classList.replace('bg-primary', 'bg-tertiary');
+                
+                setTimeout(() => {
+                    updateBtn.innerHTML = originalContent;
+                    updateBtn.classList.replace('bg-tertiary', 'bg-primary');
+                    updateBtn.classList.remove('opacity-80');
+                }, 2000);
+            }, 1500);
+        });
+
+        // Toggle logic visual feedback
+        const toggles = document.querySelectorAll('input[type="checkbox"]');
+        toggles.forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const container = e.target.closest('.bg-surface-container-low');
+                if(e.target.checked) {
+                    container.classList.add('border-tertiary');
+                } else {
+                    container.classList.remove('border-tertiary');
+                }
+            });
+        });
+    </script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+  const firebaseConfig = {
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyBZ7TkvNIJSzWJOXJ25GkqLZuU5N4t4gfw",
+  authDomain: "bigbrotherapp-a1b83.firebaseapp.com",
+  databaseURL: "https://bigbrotherapp-a1b83-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "bigbrotherapp-a1b83",
+  storageBucket: "bigbrotherapp-a1b83.firebasestorage.app",
+  messagingSenderId: "281843761384",
+  appId: "1:281843761384:web:ef90b5553a5d1bf46e495d",
+  measurementId: "G-743GTD7N8K"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  console.log("Firebase Connected");
+</script><script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBZ7TkvNIJSzWJOXJ25GkqLZuU5N4t4gfw",
+    authDomain: "bigbrotherapp-a1b83.firebaseapp.com",
+    databaseURL: "https://bigbrotherapp-a1b83-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "bigbrotherapp-a1b83",
+    storageBucket: "bigbrotherapp-a1b83.firebasestorage.app",
+    messagingSenderId: "281843761384",
+    appId: "1:281843761384:web:ef90b5553a5d1bf46e495d",
+    measurementId: "G-743GTD7N8K"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+
+  console.log("Firebase Connected Successfully");
+</script></body></html>
